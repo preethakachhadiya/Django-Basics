@@ -1,0 +1,125 @@
+{% load static %}
+<!doctype html>
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Century Gothic;
+        }
+        
+        headererer {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("{% static 'images/j1.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+        }
+        
+        
+        ul {
+            list-style-type: none;
+            float: right;
+        }
+        
+        ul li {
+            display: inline-block;
+        }
+        
+        ul li a {
+            text-decoration: none;
+            position: relative;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            border: 2px solid transparent;
+            padding: 5px 20px;
+            transition: 0.8s ease;
+        }
+        
+        ul li a:hover {
+            color: black;
+            background-color: white;
+        }
+        
+        .logo img {
+            width: 90px;
+            height: auto;
+            float: left;
+            margin: 18px;
+        }
+        
+        .main {
+            max-width: 1200px;
+        }
+        
+        ul li.active a {
+            color: #000;
+            background-color: #fff;
+        }
+        
+        .h1 {
+            position: absolute;
+            top: 45%;
+            left: 45%;
+            font-size: 35px;
+            color: white;
+        }
+        
+        .button {
+            position: absolute;
+            top: 60%;
+            left: 41%;
+        }
+        
+        .btn {
+            border: 1px solid #fff;
+            margin: 10px;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body style=" background-color:#36686e; ">
+    <header>
+        <div class="main">
+            <div class="logo">
+                <img src="{% static " images/j1.jpg " %} ">
+            </div>
+            <div class="fix ">
+                <ul>
+                    <li class="active "><a href="# ">Home</a></li>
+                    <li><a href="{% url 'donate' %} ">Donate Book</a></li>
+                    <li><a href="{% url 'book_list' %} ">Show Books</a></li>
+                    <li><a href="admin ">Admin</a></li>
+
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %} ">Profile</a></li>
+                    <li><a href="{% url 'logout' %} ">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %} ">Login</a></li>
+                    <li><a href="{% url 'register' %} ">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="h1 ">
+            <h1>IT'S JB </h1>
+        </div>
+        <div class="button ">
+            <a class="btn " href="# ">WATCH VIDEO</a>
+            <a class="btn " href="# ">LEARN MORE</a>
+        </div>
+    </header>
+</body>
+
+</html>

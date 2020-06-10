@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity=" sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh " crossorigin="anonymous ">
+
+</head>
+
+<body>
+    <h1>Welcome to Show Book Page</h1>
+
+    <div style="width:30%; position: absolute; left:5%; ">
+
+        {% for upload in uploads %}
+        <fieldset class="form-group ">
+            <legend class="border-bottom mb-4 ">
+                <a href="{% url 'book_details' upload.id %}">{{ upload.title }}</a>
+
+            </legend>
+            <h5><img src="{{ upload.image.url }}" width="200px" alt="Image is Unavailable"></h5>
+
+            Upload is Is {{ upload.id }}
+            <h1>Owner is = {{ upload.owner }}</a>
+            </h1>
+
+        </fieldset>
+        {% endfor%}
+    </div>
+
+</body>
+
+</html>

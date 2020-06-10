@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Users</title>
+   </head>
+   <body>
+      <h1>Here are your users:</h1>
+
+      {% if users %}
+         <ol>
+            {% for name in users %}
+               <li>
+                  User Info
+                  <ul>
+                     <li>First Name: {{ name.first_name }}</li>
+                     <li>Last Name: {{ name.last_name }}</li>
+                     <li>Email: {{ name.email }}</li>
+                  </ul>
+               </li>
+            {% endfor %}
+         </ol>
+      {% else %}
+         <p>No Users Found!</p>
+      {% endif %}
+
+   </body>
+</html>
